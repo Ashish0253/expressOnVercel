@@ -1,11 +1,16 @@
-const express = require("express");
+const express = require('express');
 
-const app = express();
+const app = express()
+const PORT = 8000
 
-app.use("/", (req, res) => {
-  res.send({message: "API is running..."});
-});
+app.get('/', (req, res) => {
+  res.send('Hello World')
+})
 
-app.listen(5000, () => console.log("Server ready on port 5000"));
+app.get('/about', (req, res) => {
+  res.send('About route 🎉 ')
+})
 
-module.exports = app;
+app.listen(PORT, () => {
+  console.log(`✅ Server is running on port ${PORT}`);
+})
